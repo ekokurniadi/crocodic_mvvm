@@ -1,4 +1,4 @@
-package id.ekokurniadi.myapplication.ui.splash
+package id.ekokurniadi.myapplication.ui.form.input
 
 import androidx.lifecycle.ViewModel
 import dagger.Binds
@@ -8,9 +8,9 @@ import id.ekokurniadi.myapplication.injection.anotation.ViewModelKey
 
 
 @Module
-abstract class SplashModule {
+abstract class FormInputModule {
     @Binds
     @IntoMap
-    @ViewModelKey(SplashViewModel::class)
-    abstract fun bindViewModel(viewModel: SplashViewModel):ViewModel
+    @ViewModelKey(FormInputViewModel::class)
+    abstract fun bindViewModel(viewModel: FormInputViewModel):ViewModel
 }
