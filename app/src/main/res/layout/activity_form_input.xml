@@ -88,11 +88,11 @@
 
         </RadioGroup>
 
-        <RatingBar
-            android:layout_marginTop="24dp"
-            android:id="@+id/rating_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <RatingBar-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:id="@+id/rating_bar"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
         <Button
             android:id="@+id/btn_save"

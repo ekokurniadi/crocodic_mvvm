@@ -34,7 +34,7 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
     private var valueDate = ""
     private var valueTime = ""
     private var valueAccessories = ArrayList<String>()
-    private var valueType=""
+    private var valueType = ""
     private var valueRating = 0F
 
 
@@ -49,7 +49,7 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
         checkAcc1 = findViewById(R.id.check_acc1)
         checkAcc2 = findViewById(R.id.check_acc2)
         checkAcc3 = findViewById(R.id.check_acc3)
-        ratingBar = findViewById(R.id.rating_bar)
+//        ratingBar = findViewById(R.id.rating_bar)
         radioType = findViewById(R.id.radio_type)
         btnSave = findViewById(R.id.btn_save)
 
@@ -76,8 +76,9 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
                 datePicker.text =
                     "${calendar[Calendar.YEAR]} - ${calendar[Calendar.MONTH] + 1} - ${calendar[Calendar.DATE]}"
 
-            //mengisi value
-                valueDate= "${calendar[Calendar.YEAR]} - ${calendar[Calendar.MONTH] + 1} - ${calendar[Calendar.DATE]}"
+                //mengisi value
+                valueDate =
+                    "${calendar[Calendar.YEAR]} - ${calendar[Calendar.MONTH] + 1} - ${calendar[Calendar.DATE]}"
             }
             //endregion
 
@@ -94,7 +95,7 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
 
                 picker.addOnPositiveButtonClickListener {
                     timePicker.text = "${picker.hour}:${picker.minute}"
-                    valueTime ="${picker.hour}:${picker.minute}"
+                    valueTime = "${picker.hour}:${picker.minute}"
                 }
             }
             //endregion
@@ -102,33 +103,33 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
             //region checkbox
             checkAcc1.setOnCheckedChangeListener { compoundButton, b ->
                 Log.d("checkbox", "klik: $b")
-                if(b){
+                if (b) {
                     valueAccessories.add(compoundButton.text.toString())
-                }else{
+                } else {
                     valueAccessories.remove(compoundButton.text.toString())
                 }
             }
             checkAcc2.setOnCheckedChangeListener { compoundButton, b ->
                 Log.d("checkbox", "klik: $b")
-                if(b){
+                if (b) {
                     valueAccessories.add(compoundButton.text.toString())
-                }else{
+                } else {
                     valueAccessories.remove(compoundButton.text.toString())
                 }
             }
             checkAcc3.setOnCheckedChangeListener { compoundButton, b ->
                 Log.d("checkbox", "klik: $b")
-                if(b){
+                if (b) {
                     valueAccessories.add(compoundButton.text.toString())
-                }else{
+                } else {
                     valueAccessories.remove(compoundButton.text.toString())
                 }
             }
             //endregion
 
-            ratingBar.setOnRatingBarChangeListener { ratingBar, fl, b ->
-                Log.d("rating", "rating: $fl")
-            }
+//            ratingBar.setOnRatingBarChangeListener { ratingBar, fl, b ->
+//                Log.d("rating", "rating: $fl")
+//            }
 
             radioType.setOnCheckedChangeListener { radioGroup, i ->
                 val radioButton = radioGroup.findViewById<RadioButton>(i)
@@ -136,15 +137,15 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
 
             }
 
-            ratingBar.setOnRatingBarChangeListener { ratingBar, fl, b ->
-                Log.d("rating", "rating: $fl")
-                valueRating = fl
-            }
+//            ratingBar.setOnRatingBarChangeListener { ratingBar, fl, b ->
+//                Log.d("rating", "rating: $fl")
+//                valueRating = fl
+//            }
 
             btnSave.setOnClickListener {
                 valueLocation = inputLocation.text.toString()
 
-                val outputIntent = Intent(this,FormOutputActivity::class.java).apply {
+                val outputIntent = Intent(this, FormOutputActivity::class.java).apply {
 
                     putExtra(Constant.INTENT.KEY_LOCATION, valueLocation)
                     putExtra(Constant.INTENT.KEY_DATE, valueDate)
@@ -154,11 +155,20 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
 
                 }
 
-                val dialogSave = DialogCustomSaveFragment{
-                    outputIntent.putExtra(Constant.INTENT.KEY_RATING,it)
-                    startActivity(outputIntent)
+                val dialogSave = DialogCustomSaveFragment {
+                    outputIntent.putExtra(Constant.INTENT.KEY_RATING, it)
+//                    startActivity(outputIntent)
+                    viewModel.saveVisit(
+                        valueLocation,
+                        valueDate,
+                        valueTime,
+                        valueAccessories,
+                        valueType,
+                        it
+                    )
+                    finish()
                 }
-                dialogSave.show(supportFragmentManager,"save")
+                dialogSave.show(supportFragmentManager, "save")
             }
 
         }

@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import id.ekokurniadi.myapplication.ui.form.input.FormInputActivity
 import id.ekokurniadi.myapplication.ui.form.input.FormInputModule
+import id.ekokurniadi.myapplication.ui.form.list.VisitListActivity
+import id.ekokurniadi.myapplication.ui.form.list.VisitListModule
 import id.ekokurniadi.myapplication.ui.form.output.FormOutputActivity
 import id.ekokurniadi.myapplication.ui.form.output.FormOutputModule
 import id.ekokurniadi.myapplication.ui.splash.SplashActivity
@@ -19,5 +21,8 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [FormOutputModule::class])
     abstract fun bindFormOutputActivity(): FormOutputActivity
+
+    @ContributesAndroidInjector(modules = [VisitListModule::class])
+    abstract fun bindListVisitActivity(): VisitListActivity
 
 }
