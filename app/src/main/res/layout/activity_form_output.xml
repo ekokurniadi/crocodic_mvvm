@@ -5,20 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    tools:context=".ui.form.input.FormInputActivity">
+    tools:context=".ui.form.output.FormOutputActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <AutoCompleteTextView
+        <TextView
+            android:clickable="false"
             android:id="@+id/input_location"
             android:hint="Input lokasi..."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:clickable="false"
             android:id="@+id/date_picker"
             android:layout_marginTop="24dp"
             android:hint="Pilih tanggal"
@@ -26,6 +28,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:clickable="false"
             android:id="@+id/time_picker"
             android:layout_marginTop="24dp"
             android:hint="Pilih jam"
@@ -33,30 +36,35 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:clickable="false"
             android:layout_marginTop="24dp"
             android:hint="Accesories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
+            android:clickable="false"
             android:id="@+id/check_acc1"
             android:text="Accesories 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
+            android:clickable="false"
             android:id="@+id/check_acc2"
             android:text="Accesories 2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
+            android:clickable="false"
             android:id="@+id/check_acc3"
             android:text="Accesories 3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:clickable="false"
             android:layout_marginTop="24dp"
             android:hint="Type"
             android:layout_width="wrap_content"
@@ -68,19 +76,21 @@
             android:layout_height="wrap_content">
 
             <RadioButton
-
+                android:clickable="false"
                 android:id="@+id/type1"
                 android:text="Type 1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <RadioButton
+                android:clickable="false"
                 android:id="@+id/type2"
                 android:text="Type 2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <RadioButton
+                android:clickable="false"
                 android:id="@+id/type3"
                 android:text="Type 3"
                 android:layout_width="wrap_content"
@@ -89,6 +99,7 @@
         </RadioGroup>
 
         <RatingBar
+            android:clickable="false"
             android:layout_marginTop="24dp"
             android:id="@+id/rating_bar"
             android:layout_width="wrap_content"
@@ -97,7 +108,7 @@
         <Button
             android:id="@+id/btn_save"
             android:layout_marginTop="24dp"
-            android:text="SIMPAN"
+            android:text="Kembali"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
