@@ -8,6 +8,8 @@ import id.ekokurniadi.myapplication.ui.form.list.VisitListActivity
 import id.ekokurniadi.myapplication.ui.form.list.VisitListModule
 import id.ekokurniadi.myapplication.ui.form.output.FormOutputActivity
 import id.ekokurniadi.myapplication.ui.form.output.FormOutputModule
+import id.ekokurniadi.myapplication.ui.login.LoginActivity
+import id.ekokurniadi.myapplication.ui.login.LoginModule
 import id.ekokurniadi.myapplication.ui.splash.SplashActivity
 import id.ekokurniadi.myapplication.ui.splash.SplashModule
 
@@ -25,4 +27,6 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [VisitListModule::class])
     abstract fun bindListVisitActivity(): VisitListActivity
 
+    @ContributesAndroidInjector(modules = [LoginModule::class])
+    abstract fun bindLoginActivity(): LoginActivity
 }

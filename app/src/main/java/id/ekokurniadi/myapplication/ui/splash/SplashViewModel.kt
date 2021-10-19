@@ -4,13 +4,16 @@ import android.os.CountDownTimer
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.OnLifecycleEvent
+import id.ekokurniadi.myapplication.api.ApiResponse
+import id.ekokurniadi.myapplication.data.constant.Constants
 import id.ekokurniadi.myapplication.ui.base.BaseViewModel
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import org.json.JSONObject
 import javax.inject.Inject
 
-class SplashViewModel @Inject constructor(): BaseViewModel(){
+class SplashViewModel @Inject constructor() : BaseViewModel() {
     val splashNotifier = MutableLiveData<Boolean>()
-//    val userExist = MutableLiveData<User?>()
 
     private var isFinish = false
     private var isStarted = false
@@ -27,25 +30,6 @@ class SplashViewModel @Inject constructor(): BaseViewModel(){
     fun onPause() {
         isPause = true
     }
-
-
-//    /**
-//     * mengecek data user pada database tersedia atau tidak
-//     */
-//    fun checkUserIsExist() {
-//        compositeDisposable.add(
-//            userRepository.getUserLogin()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe({
-//                    userExist.postValue(it)
-//                }, {
-//                    userExist.postValue(null)
-//                })
-//
-//        )
-//    }
-
 
     /**
      * Delay dengan hitungan mundur untuk menampilkan page splash screen
@@ -66,4 +50,34 @@ class SplashViewModel @Inject constructor(): BaseViewModel(){
         }.start()
     }
 
+    fun checkToken() {
+        if (session.accessToken.isNullOrEmpty()) {
+            getToken()
+        } else {
+            delayCountDown(3000)
+        }
+    }
+
+    private fun getToken() {
+        compositeDisposable.add(
+            apiService.oauthToken()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    val responseJson = JSONObject(it)
+                    val apiStatus = responseJson.getInt(Constants.REMOTE.API_STATUS)
+                    val apiMessage = responseJson.getJSONArray(Constants.REMOTE.API_MESSAGE)
+
+                    if (apiStatus == Constants.REMOTE.API_STATUS_SUCCESS) {
+                        val jsonObjectData = responseJson.getJSONObject(Constants.REMOTE.OBJ_DATA)
+                        session.saveAccessToken(jsonObjectData.getString("token"))
+                        delayCountDown(3000)
+                    } else {
+                        apiResponse.value = ApiResponse().responseWrong(apiMessage)
+                    }
+                }, {
+                    apiResponse.value = ApiResponse().responseError(it)
+                })
+        )
+    }
 }

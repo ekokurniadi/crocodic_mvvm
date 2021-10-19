@@ -7,4 +7,7 @@
         <item>Jogja</item>
         <item>Surabaya</item>
     </string-array>
+    <string name="dialog_save_data">Simpan data?</string>
+    <string name="button_save">Simpan</string>
+    <string name="button_cancel">Batal</string>
 </resources>
