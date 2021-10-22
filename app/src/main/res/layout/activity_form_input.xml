@@ -7,60 +7,77 @@
     android:padding="24dp"
     tools:context=".ui.form.input.FormInputActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <AutoCompleteTextView
             android:id="@+id/input_location"
-            android:hint="Input lokasi..."
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Input lokasi..." />
 
         <TextView
             android:id="@+id/date_picker"
-            android:layout_marginTop="24dp"
-            android:hint="Pilih tanggal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Pilih tanggal" />
 
         <TextView
             android:id="@+id/time_picker"
-            android:layout_marginTop="24dp"
-            android:hint="Pilih jam"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Pilih jam" />
 
         <TextView
-            android:layout_marginTop="24dp"
-            android:hint="Accesories"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Accesories" />
 
         <CheckBox
             android:id="@+id/check_acc1"
-            android:text="Accesories 1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Accesories 1" />
 
         <CheckBox
             android:id="@+id/check_acc2"
-            android:text="Accesories 2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Accesories 2" />
 
         <CheckBox
             android:id="@+id/check_acc3"
-            android:text="Accesories 3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Accesories 3" />
 
         <TextView
-            android:layout_marginTop="24dp"
-            android:hint="Type"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Type" />
 
         <RadioGroup
             android:id="@+id/radio_type"
@@ -70,37 +87,36 @@
             <RadioButton
 
                 android:id="@+id/type1"
-                android:text="Type 1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Type 1" />
 
             <RadioButton
                 android:id="@+id/type2"
-                android:text="Type 2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Type 2" />
 
             <RadioButton
                 android:id="@+id/type3"
-                android:text="Type 3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Type 3" />
 
         </RadioGroup>
 
-<!--        <RatingBar-->
-<!--            android:layout_marginTop="24dp"-->
-<!--            android:id="@+id/rating_bar"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"/>-->
+        <!--        <RatingBar-->
+        <!--            android:layout_marginTop="24dp"-->
+        <!--            android:id="@+id/rating_bar"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"/>-->
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_marginTop="24dp"
-            android:text="SIMPAN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginTop="24dp"
+            android:text="SIMPAN" />
     </LinearLayout>
 
 

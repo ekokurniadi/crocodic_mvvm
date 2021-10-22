@@ -23,7 +23,7 @@ class SplashActivity : BaseActivity<SplashViewModel>() {
     private fun observeData() {
         viewModel.splashNotifier.observe(this, Observer{
             if (it) {
-                val formIntent = Intent(this, LoginActivity::class.java)
+                val formIntent = Intent(this, FormInputActivity::class.java)
                 startActivity(formIntent)
                 finish()
             }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "106668559107",
+    "project_id": "kotlin-mvvm-48cfb",
+    "storage_bucket": "kotlin-mvvm-48cfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106668559107:android:cbf245f2d53f439ed27736",
+        "android_client_info": {
+          "package_name": "id.ekokurniadi.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106668559107-5askn89sr745dhfg4rij7a334v4gd0cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqa0IpDWMKs5z9hOIwHN0j42lxF00lQxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106668559107-5askn89sr745dhfg4rij7a334v4gd0cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

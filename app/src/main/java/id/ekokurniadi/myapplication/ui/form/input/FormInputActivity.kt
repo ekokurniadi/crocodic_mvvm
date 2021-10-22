@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.google.android.gms.maps.MapView
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -28,6 +29,7 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
     private lateinit var ratingBar: RatingBar
     private lateinit var radioType: RadioGroup
     private lateinit var btnSave: Button
+    private lateinit var mapVIew: MapView
 
     //input
     private var valueLocation = ""
@@ -52,6 +54,10 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
 //        ratingBar = findViewById(R.id.rating_bar)
         radioType = findViewById(R.id.radio_type)
         btnSave = findViewById(R.id.btn_save)
+        mapVIew = findViewById(R.id.map_view)
+
+
+        mapVIew.onCreate(savedInstanceState)
 
         //region autocomplete
         val dataLocation = resources.getStringArray(R.array.location)
@@ -142,6 +148,9 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
 //                valueRating = fl
 //            }
 
+            //regionmap
+            mapVIew.getMapAsync {  }
+            //endregion
             btnSave.setOnClickListener {
                 valueLocation = inputLocation.text.toString()
 
@@ -172,5 +181,14 @@ class FormInputActivity : BaseActivity<FormInputViewModel>() {
             }
 
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        mapVIew.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapVIew.onPause()
     }
 }
